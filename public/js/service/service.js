@@ -13,7 +13,7 @@ function CartService($http){
 
 }
 
-}
+};
 
 angular
   .module("cartApp")
