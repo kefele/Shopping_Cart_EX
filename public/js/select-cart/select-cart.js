@@ -3,7 +3,8 @@ const selectCart = {
   templateUrl: `./js/select-cart/select-cart.html`,
   controller: ["CartService", function(CartService) {
     const vm = this;
-    CartService.getItems().then((response) => {
+    CartService.getAllItems().then((response) => {
+      console.log(vm.itemList)
       vm.itemList = response;
     });
     
