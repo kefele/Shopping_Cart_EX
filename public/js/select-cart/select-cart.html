@@ -1,9 +1,9 @@
-{{2+2}}
+
 
 <section ng-repeat="item in $ctrl.itemList">
-    <p>Name: {{ item.product }}</p>
-    <p>Type: {{ item.price }}</p>
-    <p>Health: {{ item.quantity }}</p>
+    <p>Product: {{ item.product }}</p>
+    <p>Price: {{ item.price }}</p>
+    <p>Quantity: {{ item.quantity }}</p><p><input type="number" ng-blur="$ctrl.editQty(qty);"ng-model="qty.quantity" >
     <p>ID: {{ item.id }}</p>
-    
+    <button ng-click="$ctrl.deleteItems(item.id)">X</button>
   </section>

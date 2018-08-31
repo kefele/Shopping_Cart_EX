@@ -7,5 +7,8 @@ angular
     .when("/select-cart", {
         template: "<select-cart></select-cart>"
       })
+    .when("/add-item", {
+        template: "<add-cart></add-cart>"
+      })
 
  });

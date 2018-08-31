@@ -1,17 +1,55 @@
 "use strict";
 
-function CartService($http){
+function CartService($http) {
   const vm = this;
-    vm.getAllItems = () => {
-        return $http({
-          url: "/items",
-          method: "GET"
-        }).then((response) => {
-          vm.itemsList = response.data;
-          return vm.itemsList;
-        });
+  vm.getAllItems = () => {
+    return $http({
+      url: "/items",
+      method: "GET"
+    }).then((response) => {
+      vm.itemsList = response.data;
+      return vm.itemsList;
+    });
 
-}
+  };
+
+  vm.addItem = (newItem) => {
+    return $http({
+      url: "items/add",
+      method: "POST",
+      data:{
+        product: newItem.product,
+        price: newItem.price,
+        quantity: newItem.quantity
+      }
+    }).then((response)=>{
+      vm.itemsList =response.data;
+      return vm.itemsList;
+    });
+  }
+
+  vm.deleteItems = (id) => {
+    return $http({
+      url: "/items/del" +id,
+      method: "DELETE"
+    }).then((response) => {
+      vm.itemsList = response.data;
+      return vm.itemsList;
+    });
+
+  };
+
+  vm.editQty = (id)=>{
+    return $http({
+      url: "/items/update/" +id,
+      method: "PUT"
+    }).then((response)=>{
+      vm.itemsList = response.data;
+      return vm.itemsList;
+    });
+  };
+
+  
 
 };
 
