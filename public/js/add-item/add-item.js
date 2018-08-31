@@ -7,6 +7,7 @@ const addCart = {
     const vm = this;
     vm.addItem = (newItem)=>{
     CartService.addItem(newItem).then((response)=>{
+     
         vm.itemsList=response;
     });
 };

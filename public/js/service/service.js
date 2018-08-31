@@ -17,11 +17,12 @@ function CartService($http) {
     return $http({
       url: "items/add",
       method: "POST",
-      data:{
+      data: {
         product: newItem.product,
         price: newItem.price,
         quantity: newItem.quantity
       }
+
     }).then((response)=>{
       vm.itemsList =response.data;
       return vm.itemsList;
