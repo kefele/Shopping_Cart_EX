@@ -23,15 +23,15 @@ function CartService($http) {
         quantity: newItem.quantity
       }
 
-    }).then((response)=>{
-      vm.itemsList =response.data;
+    }).then((response) => {
+      vm.itemsList = response.data;
       return vm.itemsList;
     });
   }
 
   vm.deleteItems = (id) => {
     return $http({
-      url: "/items/del" +id,
+      url: "/items/del" + id,
       method: "DELETE"
     }).then((response) => {
       vm.itemsList = response.data;
@@ -40,17 +40,16 @@ function CartService($http) {
 
   };
 
-  vm.editQty = (id)=>{
+  vm.editQty = (id, quantity) => {
     return $http({
-      url: "/items/update/" +id,
-      method: "PUT"
-    }).then((response)=>{
+      url: "/items/update/" + id,
+      method: "PUT",
+      data: { quantity }
+    }).then((response) => {
       vm.itemsList = response.data;
       return vm.itemsList;
-    });
+    })
   };
-
-  
 
 };
 

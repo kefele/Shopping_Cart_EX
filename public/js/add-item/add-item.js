@@ -3,14 +3,14 @@ const addCart = {
   templateUrl: `./js/add-item/add-item.html`,
   // template:`hi`,
 
-  controller: ["CartService", function(CartService) {
+  controller: ["CartService", function (CartService) {
     const vm = this;
-    vm.addItem = (newItem)=>{
-    CartService.addItem(newItem).then((response)=>{
-     
-        vm.itemsList=response;
-    });
-};
+    vm.addItem = (newItem) => {
+      CartService.addItem(newItem).then((response) => {
+
+        vm.itemsList = response;
+      });
+    };
   }]
 };
 
@@ -19,4 +19,3 @@ angular
   .component("addCart", addCart);
 
 
-  

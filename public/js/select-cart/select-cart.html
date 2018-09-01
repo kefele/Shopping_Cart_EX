@@ -1,9 +1,9 @@
+<section ng-repeat="item in $ctrl.itemList | orderBy: 'id'">
 
-
-<section ng-repeat="item in $ctrl.itemList">
-    <p>Product: {{ item.product }}</p>
-    <p>Price: {{ item.price }}</p>
-    <p>Quantity: {{ item.quantity }}</p><p><input type="number" ng-blur="$ctrl.editQty(qty);"ng-model="qty.quantity" >
-    <p>ID: {{ item.id }}</p>
-    <button ng-click="$ctrl.deleteItems(item.id)">X</button>
-  </section>
+  <p>Product: {{ item.product }}</p>
+  <p>Price: ${{ item.price }}</p>
+  <p>Quantity: {{ item.quantity }}</p>
+  <input type="text" ng-model="qty">
+  <button ng-click="$ctrl.editQty(item.id, qty);">Edit Qty</button>
+  <button ng-click="$ctrl.deleteItems(item.id);">X</button>
+</section>
